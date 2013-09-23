@@ -24,3 +24,4 @@ public class GermanGreeter implements Greeter {
     return "Hallo " + name + "!";
   }
 }
+
