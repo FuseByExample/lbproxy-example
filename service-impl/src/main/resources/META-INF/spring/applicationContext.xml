@@ -27,6 +27,9 @@
   <jaxws:endpoint id="englishGreetingService"
                   address="http://localhost:9090/englishGreetingService"
                   implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter">
+      <jaxws:properties>
+        <entry key="schema-validation-enabled" value="true"/>
+      </jaxws:properties>
       <jaxws:inInterceptors>
           <ref bean="loggingInInterceptor"/>
       </jaxws:inInterceptors>
@@ -38,6 +41,9 @@
   <jaxws:endpoint id="spanishGreetingService"
                   address="http://localhost:9090/spanishGreetingService"
                   implementor="org.fusebyexample.examples.greeter.impl.SpanishGreeter">
+      <jaxws:properties>
+        <entry key="schema-validation-enabled" value="true"/>
+      </jaxws:properties>
       <jaxws:inInterceptors>
           <ref bean="loggingInInterceptor"/>
       </jaxws:inInterceptors>
@@ -49,6 +55,9 @@
   <jaxws:endpoint id="germanGreetingService"
                   address="http://localhost:9090/germanGreetingService"
                   implementor="org.fusebyexample.examples.greeter.impl.GermanGreeter">
+      <jaxws:properties>
+        <entry key="schema-validation-enabled" value="true"/>
+      </jaxws:properties>
       <jaxws:inInterceptors>
           <ref bean="loggingInInterceptor"/>
       </jaxws:inInterceptors>

@@ -23,7 +23,13 @@
                            http://camel.apache.org/schema/cxf http://camel.apache.org/schema/cxf/camel-cxf.xsd
                            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <cxf:cxfEndpoint id="greetingServiceLB" address="http://localhost:9090/greetingService" serviceClass="org.fusebyexample.examples.greeter.Greeter" />
+  <cxf:cxfEndpoint id="greetingServiceLB" 
+                   address="http://localhost:9090/greetingService" 
+                   serviceClass="org.fusebyexample.examples.greeter.Greeter">
+      <cxf:properties>
+        <entry key="schema-validation-enabled" value="true"/>
+      </cxf:properties>
+  </cxf:cxfEndpoint>
 
   <camelContext trace="false" xmlns="http://camel.apache.org/schema/spring">
   
