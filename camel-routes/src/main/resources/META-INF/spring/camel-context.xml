@@ -25,7 +25,8 @@
 
   <cxf:cxfEndpoint id="greetingServiceLB" 
                    address="http://localhost:9090/greetingService" 
-                   serviceClass="org.fusebyexample.examples.greeter.Greeter">
+                   serviceClass="org.fusebyexample.examples.greeter.Greeter"
+                   wsdlURL="org/fusebyexample/examples/greeter/Greeter.wsdl">
       <cxf:properties>
         <entry key="schema-validation-enabled" value="true"/>
       </cxf:properties>

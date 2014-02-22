@@ -18,6 +18,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:gs="http://examples.fusebyexample.org/greeter"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
@@ -26,7 +27,10 @@
 
   <jaxws:endpoint id="englishGreetingService"
                   address="http://localhost:9090/englishGreetingService"
-                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter">
+                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
+                  serviceName="gs:GreeterService"
+                  endpointName="GreeterServicePort">
       <jaxws:properties>
         <entry key="schema-validation-enabled" value="true"/>
       </jaxws:properties>
@@ -40,7 +44,10 @@
 
   <jaxws:endpoint id="spanishGreetingService"
                   address="http://localhost:9090/spanishGreetingService"
-                  implementor="org.fusebyexample.examples.greeter.impl.SpanishGreeter">
+                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
+                  serviceName="gs:GreeterService"
+                  endpointName="GreeterServicePort">
       <jaxws:properties>
         <entry key="schema-validation-enabled" value="true"/>
       </jaxws:properties>
@@ -54,7 +61,10 @@
 
   <jaxws:endpoint id="germanGreetingService"
                   address="http://localhost:9090/germanGreetingService"
-                  implementor="org.fusebyexample.examples.greeter.impl.GermanGreeter">
+                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
+                  serviceName="gs:GreeterService"
+                  endpointName="GreeterServicePort">
       <jaxws:properties>
         <entry key="schema-validation-enabled" value="true"/>
       </jaxws:properties>

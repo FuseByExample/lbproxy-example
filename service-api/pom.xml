@@ -64,9 +64,12 @@
         <configuration>
           <instructions>
             <Export-Package>
-              META-INF/wsdl,
               org.fusebyexample.examples.greeter
             </Export-Package>
+            <Include-Resource>
+              org/fusebyexample/examples/greeter/Greeter.wsdl=${basedir}/src/main/resources/META-INF/wsdl/Greeter.wsdl,
+              {maven-resources}
+            </Include-Resource>
           </instructions>
         </configuration>
       </plugin>
