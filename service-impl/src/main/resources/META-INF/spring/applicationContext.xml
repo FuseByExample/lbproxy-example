@@ -44,7 +44,7 @@
 
   <jaxws:endpoint id="spanishGreetingService"
                   address="http://localhost:9090/spanishGreetingService"
-                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  implementor="org.fusebyexample.examples.greeter.impl.SpanishGreeter"
                   wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
                   serviceName="gs:GreeterService"
                   endpointName="GreeterServicePort">
@@ -61,7 +61,7 @@
 
   <jaxws:endpoint id="germanGreetingService"
                   address="http://localhost:9090/germanGreetingService"
-                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  implementor="org.fusebyexample.examples.greeter.impl.GermanGreeter"
                   wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
                   serviceName="gs:GreeterService"
                   endpointName="GreeterServicePort">
