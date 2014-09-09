@@ -27,7 +27,7 @@
                                http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
                                http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd">
 
-  <cm:property-placeholder persistent-id="org.fusebyexample.examples.lbproxy.greetergateway" update-strategy="reload">
+  <cm:property-placeholder persistent-id="org.fusebyexample.examples.lbproxy.gateway" update-strategy="reload">
     <cm:default-properties>
       <cm:property name="greeter.lb.address" value="/greeter"/>
 
@@ -62,6 +62,30 @@
       </bean>
     </camel-cxf:features>
   </camel-cxf:cxfEndpoint>
+  
+  <camel-cxf:cxfEndpoint id="greeterGermanService" 
+                         address="http://dummy" 
+                         serviceClass="org.fusebyexample.examples.greeter.Greeter">
+    <camel-cxf:features>
+      <cxf:logging/>
+      <bean class="io.fabric8.cxf.FabricLoadBalancerFeature">
+        <property name="curator" ref="curator"/>
+        <property name="fabricPath" value="${greeter.german.fabricgroup}"/>
+      </bean>
+    </camel-cxf:features>
+  </camel-cxf:cxfEndpoint>
+  
+  <camel-cxf:cxfEndpoint id="greeterSpanishService" 
+                         address="http://dummy" 
+                         serviceClass="org.fusebyexample.examples.greeter.Greeter">
+    <camel-cxf:features>
+      <cxf:logging/>
+      <bean class="io.fabric8.cxf.FabricLoadBalancerFeature">
+        <property name="curator" ref="curator"/>
+        <property name="fabricPath" value="${greeter.spanish.fabricgroup}"/>
+      </bean>
+    </camel-cxf:features>
+  </camel-cxf:cxfEndpoint>
 
   <camelContext id="gateway-ctx" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
   
@@ -70,10 +94,8 @@
       <loadBalance>
         <roundRobin/>
         <to uri="cxf:bean:greeterEnglishService"/>
-        <!--
         <to uri="cxf:bean:greeterGermanService"/>
         <to uri="cxf:bean:greeterSpanishService"/>
-        -->
       </loadBalance>
     </route>
     

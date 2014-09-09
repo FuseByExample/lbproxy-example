@@ -31,8 +31,10 @@
   
   <modules>
     <module>greeter-api</module>
-    <module>greeter-english-impl</module>
     <module>greeter-gateway</module>
+    <module>greeter-english-impl</module>
+    <module>greeter-german-impl</module>
+    <module>greeter-spanish-impl</module>
   </modules>
   
   <properties>

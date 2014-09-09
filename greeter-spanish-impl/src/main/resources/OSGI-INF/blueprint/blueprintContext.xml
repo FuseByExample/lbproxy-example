@@ -25,16 +25,16 @@
                                http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
                                http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd">
 
-  <cm:property-placeholder persistent-id="org.fusebyexample.examples.lbproxy.english" update-strategy="reload">
+  <cm:property-placeholder persistent-id="org.fusebyexample.examples.lbproxy.spanish" update-strategy="reload">
     <cm:default-properties>
-      <cm:property name="greeter.address" value="/greeter/english"/>
-      <cm:property name="greeter.fabricgroup" value="greeter/english"/>
+      <cm:property name="greeter.address" value="/greeter/spanish"/>
+      <cm:property name="greeter.fabricgroup" value="greeter/spanish"/>
     </cm:default-properties>
   </cm:property-placeholder>
 
   <jaxws:endpoint id="greeterService"
                   address="${greeter.address}"
-                  implementor="org.fusebyexample.examples.greeter.impl.EnglishGreeter"
+                  implementor="org.fusebyexample.examples.greeter.impl.SpanishGreeter"
                   wsdlLocation="org/fusebyexample/examples/greeter/Greeter.wsdl"
                   serviceName="gs:GreeterService"
                   endpointName="gs:GreeterServicePort"

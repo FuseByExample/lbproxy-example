@@ -27,11 +27,11 @@
     <version>2.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>greeter-english-impl</artifactId>
+  <artifactId>greeter-spanish-impl</artifactId>
   
   <packaging>bundle</packaging>
 
-  <name>LB/Proxy Example: Greeter English Implementation</name>
+  <name>LB/Proxy Example: Greeter Spanish Implementation</name>
 
   <dependencies>
     <dependency>
@@ -92,7 +92,7 @@
         <artifactId>fabric8-maven-plugin</artifactId>
         <configuration>
           <profileConfigDir>${project.build.directory}/fabric8</profileConfigDir>
-          <profile>${fabric8.profilePrefix}-english</profile>
+          <profile>${fabric8.profilePrefix}-spanish</profile>
           <version>${fabric8.profileVersion}</version>
           <parentProfiles>
             feature-cxf

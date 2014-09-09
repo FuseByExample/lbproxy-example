@@ -95,11 +95,10 @@
         <artifactId>fabric8-maven-plugin</artifactId>
         <configuration>
           <profileConfigDir>${project.build.directory}/fabric8</profileConfigDir>
-          <profile>${fabric8.profilePrefix}-greetergateway</profile>
+          <profile>${fabric8.profilePrefix}-gateway</profile>
           <version>${fabric8.profileVersion}</version>
           <parentProfiles>
             feature-camel
-            insight-camel
           </parentProfiles>
           <features>
             camel-core 
