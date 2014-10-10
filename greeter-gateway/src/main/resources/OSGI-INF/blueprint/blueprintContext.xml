@@ -87,16 +87,17 @@
     </camel-cxf:features>
   </camel-cxf:cxfEndpoint>
 
+  <bean id="concatenatingAggregationStrategy" class="org.fusebyexample.examples.gateway.impl.ConcatenatingAggregationStrategy"/>
+
   <camelContext id="gateway-ctx" trace="false" xmlns="http://camel.apache.org/schema/blueprint">
   
     <route id="greeterServiceLBRoute">
       <from uri="cxf:bean:greeterLbService"/>
-      <loadBalance>
-        <roundRobin/>
+      <multicast strategyRef="concatenatingAggregationStrategy" parallelProcessing="true">
         <to uri="cxf:bean:greeterEnglishService"/>
         <to uri="cxf:bean:greeterGermanService"/>
         <to uri="cxf:bean:greeterSpanishService"/>
-      </loadBalance>
+      </multicast>
     </route>
     
   </camelContext>
