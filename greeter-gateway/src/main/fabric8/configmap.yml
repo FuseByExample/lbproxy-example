@@ -1,0 +1,9 @@
+metadata:
+  name: ${project.artifactId}-configmap
+data:
+  application.yml: |-
+    gateway:
+      backend-urls: 
+        - "cxf:http://greeter-english-impl:8080/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"
+        - "cxf:http://greeter-german-impl:8080/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"
+        - "cxf:http://greeter-spanish-impl:8080/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"

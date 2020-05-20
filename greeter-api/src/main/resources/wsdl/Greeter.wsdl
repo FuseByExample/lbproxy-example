@@ -16,16 +16,16 @@
 ~ limitations under the License.
 -->
 <wsdl:definitions name="GreeterService"
-                  targetNamespace="http://examples.fusebyexample.org/greeter"
+                  targetNamespace="http://examples.redhat.com/greeter"
                   xmlns="http://schemas.xmlsoap.org/wsdl/"
-                  xmlns:tns="http://examples.fusebyexample.org/greeter"
-                  xmlns:ns1="http://examples.fusebyexample.org/greeter"
+                  xmlns:tns="http://examples.redhat.com/greeter"
+                  xmlns:ns1="http://examples.redhat.com/greeter"
                   xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   
   <wsdl:types>
-    <xs:schema targetNamespace="http://examples.fusebyexample.org/greeter" xmlns="http://examples.fusebyexample.org/greeter" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:schema targetNamespace="http://examples.redhat.com/greeter" xmlns="http://examples.redhat.com/greeter" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
       <xs:element name="getGreeting" type="GetGreetingRequestType"/>
       <xs:complexType name="GetGreetingRequestType">
         <xs:sequence>

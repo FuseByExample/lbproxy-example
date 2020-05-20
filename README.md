@@ -1,40 +1,43 @@
-NOTE: This project is not supported on JBoss Fuse version 6.3 or later
-----------------------------------------------------------------------
+# CXF LB/Proxy Example
 
-CXF LB/Proxy Example
-==================
-
-Requirements
-------------
+## Requirements
 
 * Apache Maven 3.x (http://maven.apache.org)
-* JBoss Fuse 6.x (http://jboss.org/jbossfuse)
 
-Building Example
-----------------
+Build the project source code
 
-From top level of example project directory, run
+```
+cd $PROJECT_ROOT
+mvn clean install
+```
 
-    mvn clean install
+## Running the example standalone (should be done in 3 separate terminal windows/tabs)
 
-Running in JBoss Fuse
----------------------
+```
+cd $PROJECT_ROOT/greeter-gateway
+mvn spring-boot:run '-Dserver.port=8080'
+cd $PROJECT_ROOT/greeter-english-impl
+mvn spring-boot:run '-Dserver.port=9000'
+cd $PROJECT_ROOT/greeter-german-impl
+mvn spring-boot:run '-Dserver.port=9001'
+cd $PROJECT_ROOT/greeter-spanish-impl
+mvn spring-boot:run '-Dserver.port=9002'
+```
 
-Start JBoss Fuse
+## Running the example in OpenShift
 
-    <JBoss Fuse Home>/bin/fuse
+```
+oc new-project demo
+cd $PROJECT_ROOT/greeter-gateway
+mvn -P openshift clean install fabric8:deploy
+cd $PROJECT_ROOT/greeter-english-impl
+mvn -P openshift clean install fabric8:deploy
+cd $PROJECT_ROOT/greeter-german-impl
+mvn -P openshift clean install fabric8:deploy
+cd $PROJECT_ROOT/greeter-spanish-impl
+mvn -P openshift clean install fabric8:deploy
+```
 
-From the JBoss Fuse console, enter the following to install the example application
+## Testing the code
 
-    features:addurl mvn:org.fusebyexample.examples/lbproxy-example/1.0.0-SNAPSHOT/xml/features
-    features:install lbproxy-example
-
-To see what is happening within the JBoss Fuse server, you can continuously view the
-log (tail) with the following command
-
-    log:tail
-
-WS Test
--------------------
-
-Use your favorite WS testing tool (ie. SoapUI) and point it to http://localhost:9090/greetingService?wsdl. Send in multiple requests and you should see it load balance/proxy to the different implementations.
+Use your favorite WS testing tool (ie. SoapUI) and point it to http://localhost:8080/services/greeter.

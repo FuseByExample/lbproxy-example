@@ -1,0 +1,10 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: ${project.artifactId}
+        resources:
+          requests:
+            cpu: "0.5"
+          limits:
+            cpu: "4.0"

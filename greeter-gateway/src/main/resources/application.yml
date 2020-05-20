@@ -1,0 +1,26 @@
+# Servlet Container & Health Setup
+server:
+  address: 0.0.0.0
+management:
+  endpoints:
+    enabled: false
+    health:
+      enabled: true
+
+# Camel Spring Boot
+camel:
+  springboot:
+    name: greeter-gateway
+
+# Logging
+logging:
+  config: classpath:logback.xml
+  level:
+    com.redhat.examples: INFO
+
+#Application
+gateway:
+  backend-urls:
+    - "cxf:http://localhost:9000/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"
+    - "cxf:http://localhost:9001/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"
+    - "cxf:http://localhost:9002/services/greeter?serviceClass=com.redhat.examples.greeter.Greeter"

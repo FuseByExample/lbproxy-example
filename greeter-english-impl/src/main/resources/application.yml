@@ -1,0 +1,19 @@
+# Servlet Container & Health Setup
+server:
+  address: 0.0.0.0
+management:
+  endpoints:
+    enabled: false
+    health:
+      enabled: true
+
+# Camel Spring Boot
+camel:
+  springboot:
+    name: greeter-english-impl
+
+# Logging
+logging:
+  config: classpath:logback.xml
+  level:
+    com.redhat.examples: INFO
