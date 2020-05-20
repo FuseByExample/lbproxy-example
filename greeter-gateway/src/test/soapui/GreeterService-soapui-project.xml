@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="GreeterService" resourceRoot="${projectDir}" soapui-version="5.0.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GreeterServiceSoapBinding" type="wsdl" bindingName="{http://examples.fusebyexample.org/greeter}GreeterServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9001/greeter?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9001/greeter?wsdl"><con:part><con:url>http://localhost:9001/greeter?wsdl</con:url><con:content><![CDATA[<definitions name="GreeterService" targetNamespace="http://examples.fusebyexample.org/greeter" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://examples.fusebyexample.org/greeter" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://examples.fusebyexample.org/greeter" xmlns="http://schemas.xmlsoap.org/wsdl/">
-  <types>
-    <xs:schema elementFormDefault="qualified" targetNamespace="http://examples.fusebyexample.org/greeter" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://examples.fusebyexample.org/greeter">
-      <xs:element name="getGreeting" type="GetGreetingRequestType"/>
+<con:soapui-project activeEnvironment="Default" name="GreeterService" resourceRoot="${projectDir}" soapui-version="5.5.0" id="1f08b7fd-fd25-4ba9-af78-34dbf1b31d4d" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GreeterServiceSoapBinding" type="wsdl" bindingName="{http://examples.redhat.com/greeter}GreeterServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/services/greeter?wsdl" id="263fbb09-aade-4763-b0fb-89aeabed58ea" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/services/greeter?wsdl"><con:part><con:url>http://localhost:8080/services/greeter?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GreeterService" targetNamespace="http://examples.redhat.com/greeter" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://examples.redhat.com/greeter" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://examples.redhat.com/greeter" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getGreeting" type="tns:GetGreetingRequestType"/>
+      <xs:element name="getGreetingResponse" type="tns:GetGreetingResponseType"/>
       <xs:complexType name="GetGreetingRequestType">
         <xs:sequence>
           <xs:element name="name" type="xs:string"/>
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="getGreetingResponse" type="GetGreetingResponseType"/>
       <xs:complexType name="GetGreetingResponseType">
         <xs:sequence>
           <xs:element name="greeting" type="xs:string"/>
         </xs:sequence>
       </xs:complexType>
     </xs:schema>
-  </types>
-  <message name="getGreetingResponse">
-    <part element="ns1:getGreetingResponse" name="parameters"></part>
-  </message>
-  <message name="getGreeting">
-    <part element="ns1:getGreeting" name="parameters"></part>
-  </message>
-  <portType name="Greeter">
-    <operation name="getGreeting">
-      <input message="ns1:getGreeting" name="getGreeting"></input>
-      <output message="ns1:getGreetingResponse" name="getGreetingResponse"></output>
-    </operation>
-  </portType>
-  <binding name="GreeterServiceSoapBinding" type="ns1:Greeter">
+  </wsdl:types>
+  <wsdl:message name="getGreetingResponse">
+    <wsdl:part element="tns:getGreetingResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getGreeting">
+    <wsdl:part element="tns:getGreeting" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Greeter">
+    <wsdl:operation name="getGreeting">
+      <wsdl:input message="tns:getGreeting" name="getGreeting"></wsdl:input>
+      <wsdl:output message="tns:getGreetingResponse" name="getGreetingResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GreeterServiceSoapBinding" type="tns:Greeter">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <operation name="getGreeting">
+    <wsdl:operation name="getGreeting">
       <soap:operation soapAction="" style="document"/>
-      <input name="getGreeting">
+      <wsdl:input name="getGreeting">
         <soap:body use="literal"/>
-      </input>
-      <output name="getGreetingResponse">
+      </wsdl:input>
+      <wsdl:output name="getGreetingResponse">
         <soap:body use="literal"/>
-      </output>
-    </operation>
-  </binding>
-  <service name="GreeterService">
-    <port binding="ns1:GreeterServiceSoapBinding" name="GreeterServicePort">
-      <soap:address location="http://localhost:9001/greeter"/>
-    </port>
-  </service>
-</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:9000/greeter</con:endpoint><con:endpoint>http://localhost:9000/greeter/english</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getGreeting" bindingOperationName="getGreeting" type="Request-Response" outputName="getGreetingResponse" inputName="getGreeting" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:9000/greeter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gre="http://examples.fusebyexample.org/greeter">
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GreeterService">
+    <wsdl:port binding="tns:GreeterServiceSoapBinding" name="GreeterPort">
+      <soap:address location="http://localhost:8080/services/greeter"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://greeter-gateway-fuse.apps-crc.testing/services/greeter</con:endpoint><con:endpoint>http://localhost:8080/services/greeter</con:endpoint><con:endpoint>http://localhost:9000/services/greeter</con:endpoint><con:endpoint>http://localhost:9001/services/greeter</con:endpoint><con:endpoint>http://localhost:9002/services/greeter</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getGreeting" bindingOperationName="getGreeting" type="Request-Response" outputName="getGreetingResponse" inputName="getGreeting" receivesAttachments="false" sendsAttachments="false" anonymous="optional" id="0d9d5275-5702-4d00-9d46-3e97b38ca5b3"><con:settings/><con:call name="Request 1" id="0c88be43-7b99-473e-b01c-8c4733ae5f44"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://greeter-gateway-fuse.apps-crc.testing/services/greeter</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gre="http://examples.redhat.com/greeter">
    <soapenv:Header/>
    <soapenv:Body>
       <gre:getGreeting>
          <gre:name>Cosmo Kramer</gre:name>
       </gre:getGreeting>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://examples.fusebyexample.org/greeter/Greeter/getGreeting"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://examples.fusebyexample.org/greeter/Greeter/getGreeting"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
